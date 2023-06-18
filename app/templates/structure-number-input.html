@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+  .home-column {
+    float: left;
+    width: 40%;
+    padding: 20px;
+  }
+
+</style>
+
+<head>
+  <!-- update js file directory -->
+  <!-- <script src="{{ url_for('static', filename='js/nbi-search.js') }}"></script> -->
+</head>
+
+<h1>NBI Database Search</h1>
+
+<div class="column">
+  <form method="POST" action="/structure-number-search">
+
+  <label for="coordinate">Input structure number:</label><br>
+  <input type="text" id="structure_number" name="structure_number" size="18"><br>
+  <input type="submit" value="Submit">
+
+  </form>
+
+  <br><br><br><br>
+  &#169; <script>document.write(/\d{4}/.exec(Date())[0])</script> Kevin Connor
+
+</div>
+
+
+{% endblock %}

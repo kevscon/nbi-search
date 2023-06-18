@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+  .home-column {
+    float: left;
+    width: 40%;
+    padding: 20px;
+  }
+
+</style>
+
+<head>
+  <!-- update js file directory -->
+  <script src="{{ url_for('static', filename='js/county-search.js') }}"></script>
+</head>
+
+<h1>NBI Database Search</h1>
+
+<div class="column">
+  <form method="POST" action="/">
+
+    {{ form.hidden_tag() }}
+
+    <br>
+    {{ form.state_postal.label }}
+    {{ form.state_postal(class="btn btn-dark dropdown-toggle") }} <br><br>
+    {{ form.county_name.label }}
+    {{ form.county_name(class="btn btn-dark dropdown-toggle") }} <br><br>
+    {{ form.submit(class="btn btn-dark") }}
+
+  </form>
+
+  <br><br><br><br>
+  &#169; <script>document.write(/\d{4}/.exec(Date())[0])</script> Kevin Connor
+
+</div>
+
+
+{% endblock %}

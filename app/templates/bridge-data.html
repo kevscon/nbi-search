@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{{ bridge_data['FACILITY_CARRIED_007'] }} over {{ bridge_data['FEATURES_DESC_006A'] }}
+<br><br>
+
+General<br>
+-----<br>
+Structure ID: {{ bridge_data['STRUCTURE_NUMBER_008'] }}<br>
+Posting: {{ bridge_data['OPEN_CLOSED_POSTED_041'] }}<br>
+Year Built: {{ bridge_data['YEAR_BUILT_027'] }}<br>
+Year Reconstructed: {{ bridge_data['YEAR_RECONSTRUCTED_106'] }}<br>
+Owner: {{ bridge_data['OWNER_022'] }}<br>
+Structural Evaluation: {{ bridge_data['STRUCTURAL_EVAL_067'] }}<br>
+<br>
+Location<br>
+-----<br>
+State: {{ bridge_data['STATE_CODE_001'] }}<br>
+County: {{ bridge_data['COUNTY_CODE_003'] }}<br>
+City/Town/CDP: {{ bridge_data['PLACE_CODE_004'] }}<br>
+<a href="https://www.google.com/maps/search/?api=1&query={{ bridge_data['LAT_016'] }},{{ bridge_data['LONG_017'] }}" target="_blank">Google Maps link</a><br>
+<br>
+Service<br>
+-----<br>
+Use: {{ bridge_data['SERVICE_ON_042A'] }}<br>
+Classification: {{ bridge_data['FUNCTIONAL_CLASS_026'] }}<br>
+Number of Lanes: {{ bridge_data['TRAFFIC_LANES_ON_028A'] }}<br>
+Average Daily Traffic: {{ bridge_data['ADT_029'] }} ({{ bridge_data['YEAR_ADT_030'] }})<br>
+Trucks: {{ bridge_data['PERCENT_ADT_TRUCK_109'] }}%<br>
+<br>
+Dimensions<br>
+-----<br>
+Total Length: {{ bridge_data['STRUCTURE_LEN_MT_049'] }} feet<br>
+Max Span Length: {{ bridge_data['MAX_SPAN_LEN_MT_048'] }} feet<br>
+Out-to-Out Width: {{ bridge_data['DECK_WIDTH_MT_052'] }} feet<br>
+Roadway Width: {{ bridge_data['ROADWAY_WIDTH_MT_051'] }} feet<br>
+Skew: {{ bridge_data['DEGREES_SKEW_034'] }}&deg;<br>
+Vertical Clearance: {{ bridge_data['VERT_CLR_OVER_MT_053'] }} feet<br>
+<br>
+Design<br>
+-----<br>
+Superstructure: {{ bridge_data['STRUCTURE_KIND_043A'] }} {{ bridge_data['STRUCTURE_TYPE_043B'] }}<br>
+Deck Type: {{ bridge_data['DECK_STRUCTURE_TYPE_107'] }}<br>
+Deck Protection: {{ bridge_data['DECK_PROTECTION_108C'] }}<br>
+Wearing Surface Type: {{ bridge_data['SURFACE_TYPE_108A'] }}<br>
+Design Load: {{ bridge_data['DESIGN_LOAD_031'] }}<br>
+Number of Spans: {{ bridge_data['MAIN_UNIT_SPANS_045'] }}<br>
+<br>
+Load Rating<br>
+-----<br>
+Operating Rating: {{ bridge_data['OPERATING_RATING_064'] }} tons<br>
+Operating Method: {{ bridge_data['OPR_RATING_METH_063'] }}<br>
+Inventory Rating: {{ bridge_data['INVENTORY_RATING_066'] }} tons<br>
+Inventory Method: {{ bridge_data['INV_RATING_METH_065'] }}<br>
+<br>
+
+{% endblock %}

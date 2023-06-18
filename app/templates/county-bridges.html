@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<label for="carries-search">Filter by roadway carried:</label><br>
+<input type="text" id="carries-search"></input><br>
+<label for="crosses-search">Filter by what roadway crosses:</label><br>
+<input type="text" id="crosses-search"></input><br>
+<br>
+
+  <table id="prop-table" class="table table-dark">
+    <thead>
+      <tr>
+        <th>Structure Number</th>
+        <th>Carries</th>
+        <th>Crosses</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for bridge_data_dict in bridge_list %}
+     <tr>
+      <td> <a href="/{{ state_postal }}/{{ bridge_data_dict['STRUCTURE_NUMBER_008'] }}">{{ bridge_data_dict['STRUCTURE_NUMBER_008'] }}</a> </td>
+      <td> {{ bridge_data_dict['FACILITY_CARRIED_007'] }} </td>
+      <td> {{ bridge_data_dict['FEATURES_DESC_006A'] }} </td>
+     </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+<script>
+
+  $(document).ready(function($){
+
+    $("#carries-search").on("keyup", function() {
+        var carries = $(this).val().toUpperCase();
+        var crosses = $("#crosses-search").val().toUpperCase();
+
+        $("table tr").each(function(index) {
+            if (index !== 0) {
+
+                $row = $(this);
+
+                var id_carries = $row.find("td:nth-child(2)").text().toUpperCase();
+                var id_crosses = $row.find("td:nth-child(3)").text().toUpperCase();
+
+                if (id_carries.indexOf(carries) == -1 || id_crosses.indexOf(crosses) == -1) {
+                    $row.hide();
+                }
+                else {
+                    $row.show();
+                }
+            }
+        });
+    });
+
+    $("#crosses-search").on("keyup", function() {
+        var crosses = $(this).val().toUpperCase();
+        var carries = $("#carries-search").val().toUpperCase();
+
+        $("table tr").each(function(index) {
+            if (index !== 0) {
+
+                $row = $(this);
+
+                var id_carries = $row.find("td:nth-child(2)").text().toUpperCase();
+                var id_crosses = $row.find("td:nth-child(3)").text().toUpperCase();
+
+                if (id_carries.indexOf(carries) == -1 || id_crosses.indexOf(crosses) == -1) {
+                    $row.hide();
+                }
+                else {
+                    $row.show();
+                }
+            }
+        });
+    });
+
+});
+
+</script>
+
+{% endblock %}

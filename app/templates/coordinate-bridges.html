@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <table id="prop-table" class="table table-dark">
+    <thead>
+      <tr>
+        <th>Structure Number</th>
+        <th>State</th>
+        <th>Carries</th>
+        <th>Crosses</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for bridge_data_dict in bridge_list %}
+     <tr>
+      <td> <a href="/{{ bridge_data_dict['STATE_CODE_001'] }}/{{ bridge_data_dict['STRUCTURE_NUMBER_008'] }}">{{ bridge_data_dict['STRUCTURE_NUMBER_008'] }}</a> </td>
+      <td> {{ bridge_data_dict['STATE_CODE_001'] }} </td>
+      <td> {{ bridge_data_dict['FACILITY_CARRIED_007'] }} </td>
+      <td> {{ bridge_data_dict['FEATURES_DESC_006A'] }} </td>
+     </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock %}
